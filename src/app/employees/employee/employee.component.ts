@@ -32,10 +32,15 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    let data = form.value;
+    let data = Object.assign({}, form.value);
+    delete data.id;   
     console.log(data);
-    this.firestore.collection('employees').add(data);
-    this.resetForm(form);
+    let employeeID = form.value.id;
+    if(employeeID == null)
+        this.firestore.collection('employees').add(data);
+    else
+    this.firestore.doc('employees/' + employeeID).update(data);
+        this.resetForm(form);
     this.toastr.success('Successfull Submitted!!', 'Emp.Register')
   }
 }
