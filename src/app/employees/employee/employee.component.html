@@ -1,0 +1,78 @@
+<h1 class="display-4">EMP. Register</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <div class="form-group">
+    <input
+      name="firstName"
+      #firstName="ngModel"
+      [(ngModel)]="service.formData.firstName"
+      class="form-control"
+      placeholder="First Name"
+      required
+    />
+    <div *ngIf="firstName.invalid && firstName.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <input
+      name="lastName"
+      #lastName="ngModel"
+      [(ngModel)]="service.formData.lastName"
+      class="form-control"
+      placeholder="Last Name"
+      required
+    />
+    <div *ngIf="lastName.invalid && lastName.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <input
+      name="gender"
+      #gender="ngModel"
+      [(ngModel)]="service.formData.gender"
+      class="form-control"
+      placeholder="Gender"
+      required
+    />
+    <div *ngIf="gender.invalid && gender.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <input
+      name="jobTitleName"
+      #jobTitleName="ngModel"
+      [(ngModel)]="service.formData.jobTitleName"
+      class="form-control"
+      placeholder="Job Title"
+      required
+    />
+    <div *ngIf="jobTitleName.invalid && jobTitleName.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <input
+      name="phoneNumber"
+      #phoneNumber="ngModel"
+      [(ngModel)]="service.formData.phoneNumber"
+      class="form-control"
+      placeholder="Phone Number"
+      required
+    />
+    <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group"> 
+    <input
+      name="emailAddress"
+      #emailAddress="ngModel"
+      [(ngModel)]="service.formData.emailAddress"
+      class="form-control"
+      placeholder="E-mail Address"
+      required
+    />
+    <div *ngIf="emailAddress.invalid && emailAddress.touched" class="validation-error">This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="form.invalid">Submit</button>
+  </div>
+</form>
